@@ -1,4 +1,5 @@
 import 'package:tutorial6/main.dart';
+import 'package:tutorial6/page/to_do_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,6 +30,39 @@ class _MyFormPageState extends State<MyFormPage> {
       appBar: AppBar(
         title: Text('Form'),
       ),
+      drawer: Drawer(
+        child: Column(children: [
+          ListTile(
+            title: const Text('Counter'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyHomePage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Form'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyFormPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('To Do'),
+            onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const ToDoPage()),
+                );
+            },
+        ),
+        ],
+      ),
+    ),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
